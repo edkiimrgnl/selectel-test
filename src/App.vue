@@ -2,17 +2,19 @@
   <a-layout>
     <AppHeader />
     <a-layout-content>Content</a-layout-content>
-    <a-layout-footer>Footer</a-layout-footer>
+    <AppFooter />
   </a-layout>
 </template>
 
 <script>
 import AppHeader from '@/components/AppHeader.vue';
+import AppFooter from '@/components/AppFooter.vue';
 
 export default {
   name: 'App',
   components: {
     AppHeader,
+    AppFooter,
   }
 }
 </script>
