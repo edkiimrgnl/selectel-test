@@ -1,11 +1,11 @@
 <template>
-  <a-layout-content>
+  <a-layout-content class="main">
     <AppCarousel />
-    <div>
+    <div class="main_filter-container">
       <AppSelector />
       <AppDatePicker />
     </div>
-    <div>
+    <div class="main_posts-container">
       <AppPostCard
         v-for="post in posts"
         :key="post.id"

@@ -1,8 +1,8 @@
 <template>
   <div class="card-container">
-    <a-card :title="title" class="card">
+    <a-card :title="title" class="card" :head-style="titleStyle">
       <p class="card_body-text">{{ body }}</p>
-      <div>
+      <div class="card_badge-container">
         <a-badge
             :count="user.name"
             :number-style="{ backgroundColor: 'rgba(9, 36, 51, 1)' }"
@@ -31,16 +31,18 @@ export default {
   data() {
     return {
     }
+  },
+  computed: {
+    titleStyle() {
+      return {
+        color: 'rgba(0, 0, 0, 0.65)',
+        fontSize: '16px',
+        fontWeight: '600',
+        lineHeight: '22px',
+        letterSpacing: '0',
+        textAlign: 'left',
+      }
+    }
   }
 }
 </script>
-
-<style lang="scss">
-.card-container {
-  margin: 10px;
-}
-.card {
-  width: 360px;
-  height: 260px;
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <a-range-picker :locale="locale" />
+  <a-range-picker class="date-picker" :locale="locale" />
 </template>
 
 <script>

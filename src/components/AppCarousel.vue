@@ -1,6 +1,7 @@
 <template>
   <a-carousel>
     <div
+      class="carousel"
       v-for="{
         imgUrl,
         id,
@@ -9,9 +10,9 @@
       } in carouselData"
       :key="id"
     >
-      <div :style="{background: `no-repeat center url(${imgUrl})`}">
-        <p>{{ title }}</p>
-        <p>{{ text }}</p>
+      <div class="carousel_content-container" :style="{background: `no-repeat center url(${imgUrl})`}">
+        <p class="carousel_title">{{ title }}</p>
+        <p class="carousel_text">{{ text }}</p>
       </div>
     </div>
   </a-carousel>

@@ -1,6 +1,6 @@
 <template>
   <a-select
-
+    class="selector"
   >
     <template #suffixIcon><user-outlined /></template>
   </a-select>
