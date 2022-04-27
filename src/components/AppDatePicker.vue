@@ -1,5 +1,9 @@
 <template>
-  <a-range-picker class="date-picker" :locale="locale" />
+  <a-range-picker
+    class="date-picker"
+    :locale="locale"
+    @change="onChange"
+  />
 </template>
 
 <script>
@@ -18,6 +22,16 @@ export default {
   methods: {
     changeLocaleValues() {
       this.locale.lang.rangePlaceholder = ['От', 'До'];
+    },
+    onChange(e) {
+      if (!e) return;
+      const startDate = e[0].$d.getTime();
+      const endDate = e[1].$d.getTime();
+
+      this.$emit('date-set', {
+        startDate,
+        endDate
+      })
     }
   }
 }

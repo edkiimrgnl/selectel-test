@@ -4,15 +4,15 @@
       <p class="card_body-text">{{ body }}</p>
       <div class="card_badge-container">
         <a-badge
-            :count="user.name"
-            :number-style="{ backgroundColor: 'rgba(9, 36, 51, 1)' }"
+          :count="user"
+          :number-style="{ backgroundColor: 'rgba(9, 36, 51, 1)' }"
         ></a-badge>
         <a-badge
-            :count="user.email"
-            :number-style="{
-            backgroundColor: 'transparent',
-            color: 'rgba(89, 89, 89, 1)',
-            borderColor: 'rgba(232, 232, 232, 1)'
+          :count="date"
+          :number-style="{
+          backgroundColor: 'transparent',
+          color: 'rgba(89, 89, 89, 1)',
+          borderColor: 'rgba(232, 232, 232, 1)'
           }"
         ></a-badge>
       </div>
@@ -25,7 +25,8 @@ export default {
   props: {
     title: String,
     body: String,
-    user: Object,
+    user: String,
+    date: String,
   },
   name: 'AppPostCard',
   data() {

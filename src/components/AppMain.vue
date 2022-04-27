@@ -4,17 +4,18 @@
     <div class="main_wrapper">
       <div class="main_filter-container">
         <div class="main_filter-wrapper">
-          <AppSelector />
-          <AppDatePicker />
+          <AppSelector :users="userNames" @user-selected="onSelected"/>
+          <AppDatePicker @date-set="onDateSet" />
         </div>
       </div>
       <div class="main_posts-container">
         <AppPostCard
-          v-for="post in posts"
+          v-for="post in filteredPosts"
           :key="post.id"
           :title="post.title"
           :body="post.body"
-          :user="findUser(post.userId)"
+          :user="post.authorName"
+          :date="post.date.formattedDate"
         />
       </div>
     </div>
@@ -30,6 +31,8 @@ import AppPostCard from '@/components/AppPostCard.vue';
 import { users } from "../api/fetchUsers";
 import { posts } from "../api/fetchPosts";
 
+import { generatedRandomDate } from "../js/helpers";
+
 export default {
   name: 'AppMain',
   components: {
@@ -39,17 +42,77 @@ export default {
     AppPostCard,
   },
   mounted() {
-    // console.log(users, posts)
+    this.fillPostsWithUsers();
+    this.fillPostsWithDate();
+
+    this.filteredPosts = this.posts;
   },
   data() {
     return {
       users,
       posts,
+      filteredPosts: [],
+      filteredUsers: [],
+      dates: null,
+    }
+  },
+  computed: {
+    userNames() {
+      return users.map(el => {
+        return {
+          value: el.name,
+          label: el.name,
+        }
+      });
     }
   },
   methods: {
     findUser(userId) {
-      return this.users.find(user => user.id === userId)
+      return this.users.find(user => user.id === userId);
+    },
+    fillPostsWithDate() {
+      this.posts.forEach(post => {
+        post.date = generatedRandomDate();
+      })
+    },
+    fillPostsWithUsers() {
+      this.posts.forEach(post => {
+        post.authorName = this.findUser(post.userId).name;
+      })
+    },
+    filterPosts() {
+      this.filteredPosts = !this.filteredUsers.length && !this.dates
+          ? this.posts
+          : this.posts.filter(post => {
+        const postDate = new Date(post.date.date).getTime();
+
+        const AuthorsIsIncludes = this.filteredUsers.includes(post.authorName);
+        const dateIsInBetween = postDate >= this.dates?.startDate && postDate <= this.dates?.endDate;
+
+        if (dateIsInBetween && AuthorsIsIncludes) {
+          return true;
+        } else if (dateIsInBetween) {
+          return !this.filteredUsers.length;
+        } else if (AuthorsIsIncludes) {
+          return !this.dates;
+        } else {
+          return false;
+        }
+      })
+    },
+    onSelected(value) {
+      this.filteredUsers = value;
+    },
+    onDateSet(value) {
+      this.dates = value;
+    }
+  },
+  watch: {
+    filteredUsers() {
+      this.filterPosts();
+    },
+    dates() {
+      this.filterPosts();
     }
   }
 }
