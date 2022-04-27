@@ -10,9 +10,15 @@
       } in carouselData"
       :key="id"
     >
-      <div class="carousel_content-container" :style="{background: `no-repeat center url(${imgUrl})`}">
-        <p class="carousel_title">{{ title }}</p>
-        <p class="carousel_text">{{ text }}</p>
+      <div class="carousel_content-container" :style="{background: `no-repeat center/cover url(${imgUrl})`}">
+        <div class="main_wrapper">
+          <div class="carousel_onemore-wrapper">
+            <div class="carousel_content-wrapper">
+              <p class="carousel_title">{{ title }}</p>
+              <p class="carousel_text">{{ text }}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </a-carousel>

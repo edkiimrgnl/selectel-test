@@ -1,18 +1,22 @@
 <template>
   <a-layout-content class="main">
     <AppCarousel />
-    <div class="main_filter-container">
-      <AppSelector />
-      <AppDatePicker />
-    </div>
-    <div class="main_posts-container">
-      <AppPostCard
-        v-for="post in posts"
-        :key="post.id"
-        :title="post.title"
-        :body="post.body"
-        :user="findUser(post.userId)"
-      />
+    <div class="main_wrapper">
+      <div class="main_filter-container">
+        <div class="main_filter-wrapper">
+          <AppSelector />
+          <AppDatePicker />
+        </div>
+      </div>
+      <div class="main_posts-container">
+        <AppPostCard
+          v-for="post in posts"
+          :key="post.id"
+          :title="post.title"
+          :body="post.body"
+          :user="findUser(post.userId)"
+        />
+      </div>
     </div>
   </a-layout-content>
 </template>

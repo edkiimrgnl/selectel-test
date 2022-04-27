@@ -1,14 +1,12 @@
 .footer {
   background: rgba(9, 36, 51, 1);
-  position: sticky;
-  bottom: 0;
   padding: 32px 15px;
   display: flex;
   flex-direction: column;
   gap: 25px;
-
-  .logo-container {
-  }
+  position: sticky;
+  top: 100%;
+  z-index: 2000;
 
   &_logo {
     width: 157px;
@@ -45,5 +43,41 @@
     letter-spacing: 0;
     text-align: left;
     color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .footer {
+    padding: 80px 20px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas:
+      "logo logo logo logo logo nav nav nav nav nav nav nav"
+      "info info . . . soc soc soc soc soc soc soc";
+
+    .logo-container {
+      grid-area: logo;
+    }
+
+    &_logo {
+      width: 324px;
+    }
+
+    &_social {
+      grid-area: soc;
+    }
+
+    .nav-container {
+      grid-area: nav;
+    }
+
+    &_nav-item {
+      width: 20%;
+    }
+
+    &_info {
+      grid-area: info;
+    }
   }
 }
