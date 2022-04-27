@@ -4,13 +4,13 @@
       <img class="header_logo" src="@/assets/selectel_logo.svg" alt="Selectel">
     </div>
     <div class="header_contact-container">
-      <div class="header_telephone">
+      <div class="header_telephone on-hover-color">
         <p v-if="widthResponse">
           {{ telephone }}
         </p>
         <img v-else src="@/assets/phone.svg" alt="phone">
       </div>
-      <div class="header_email">
+      <div class="header_email on-hover-color">
         <p v-if="widthResponse">
           {{ email }}
         </p>

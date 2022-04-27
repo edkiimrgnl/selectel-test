@@ -4,23 +4,23 @@
       <img class="footer_logo" src="@/assets/selectel-logo-white.svg" alt="Selectel">
     </div>
     <div class="footer_social">
-      <a href="#">
+      <a href="#" class="on-hover-color">
         <img src="@/assets/telegram.svg" alt="telegram">
       </a>
-      <a href="#">
+      <a href="#" class="on-hover-color">
         <img src="@/assets/vk.svg" alt="vkontakte">
       </a>
-      <a href="#">
+      <a href="#" class="on-hover-color">
         <img src="@/assets/twitter.svg" alt="twitter">
       </a>
-      <a href="#">
-        <img src="@/assets/h.svg" alt="h">
+      <a href="#" class="on-hover-color">
+        <img class=" on-hover-color" src="@/assets/h.svg" alt="h">
       </a>
     </div>
     <div class="nav-container">
       <ul class="footer_nav">
         <li class="footer_nav-item" v-for="{name, link} in navItems" :key="name">
-          <a :href="link">
+          <a :href="link" class="on-hover-color">
             {{ name }}
           </a>
         </li>
