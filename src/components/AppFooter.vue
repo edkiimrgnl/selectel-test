@@ -4,17 +4,17 @@
       <img class="footer_logo" src="@/assets/selectel-logo-white.svg" alt="Selectel">
     </div>
     <div class="footer_social">
-      <a href="#" class="on-hover-color">
+      <a href="#">
         <img src="@/assets/telegram.svg" alt="telegram">
       </a>
-      <a href="#" class="on-hover-color">
+      <a href="#">
         <img src="@/assets/vk.svg" alt="vkontakte">
       </a>
-      <a href="#" class="on-hover-color">
+      <a href="#">
         <img src="@/assets/twitter.svg" alt="twitter">
       </a>
-      <a href="#" class="on-hover-color">
-        <img class=" on-hover-color" src="@/assets/h.svg" alt="h">
+      <a href="#">
+        <img src="@/assets/h.svg" alt="h">
       </a>
     </div>
     <div class="nav-container">
