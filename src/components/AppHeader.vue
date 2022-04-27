@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     checkWidth() {
-      return window.innerWidth >= 1200;
+      return window.innerWidth >= 768;
     },
     changeWidthResponseData() {
       this.widthResponse = this.checkWidth();

@@ -33,25 +33,9 @@
   margin-bottom: 0;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   .header {
     height: 88px;
     padding: 0 140px;
-
-    &_logo {
-
-    }
-
-    &_contact-container {
-
-    }
-
-    &_telephone {
-
-    }
-
-    &_email {
-
-    }
   }
 }
