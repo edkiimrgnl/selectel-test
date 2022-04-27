@@ -24,7 +24,11 @@ export default {
       this.locale.lang.rangePlaceholder = ['От', 'До'];
     },
     onChange(e) {
-      if (!e) return;
+      if (!e) {
+        this.$emit('date-set', null);
+        return;
+      }
+
       const startDate = e[0].$d.getTime();
       const endDate = e[1].$d.getTime();
 

@@ -81,6 +81,7 @@ export default {
       })
     },
     filterPosts() {
+      console.log(this.dates)
       this.filteredPosts = !this.filteredUsers.length && !this.dates
           ? this.posts
           : this.posts.filter(post => {
