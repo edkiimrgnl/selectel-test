@@ -19,7 +19,7 @@
     </div>
     <div class="nav-container">
       <ul class="footer_nav">
-        <li class="footer_nav-item" v-for="{name, link} in navItems">
+        <li class="footer_nav-item" v-for="{name, link} in navItems" :key="name">
           <a :href="link">
             {{ name }}
           </a>

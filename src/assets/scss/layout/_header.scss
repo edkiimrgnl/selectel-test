@@ -1,0 +1,57 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 56px;
+  padding: 0 15px;
+  line-height: 0;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &_logo {
+
+  }
+
+  &_contact-container {
+    display: flex;
+  }
+
+  &_telephone {
+    margin-right: 15px;
+  }
+
+  &_email {
+
+  }
+
+}
+
+.header p {
+  margin-bottom: 0;
+}
+
+@media (min-width: 1200px) {
+  .header {
+    height: 88px;
+    padding: 0 140px;
+
+    &_logo {
+
+    }
+
+    &_contact-container {
+
+    }
+
+    &_telephone {
+
+    }
+
+    &_email {
+
+    }
+  }
+}

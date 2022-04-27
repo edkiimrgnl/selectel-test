@@ -1,0 +1,21 @@
+.card {
+  width: 359px;
+
+  &-container {
+
+  }
+
+  &_body-text {
+    min-height: 120px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0;
+    text-align: left;
+  }
+
+  &_badge-container {
+    display: flex;
+    gap: 10px;
+  }
+}
