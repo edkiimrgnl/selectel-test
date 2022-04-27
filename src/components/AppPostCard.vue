@@ -22,13 +22,13 @@
 
 <script>
 export default {
+  name: 'AppPostCard',
   props: {
     title: String,
     body: String,
     user: String,
     date: String,
   },
-  name: 'AppPostCard',
   data() {
     return {
     }

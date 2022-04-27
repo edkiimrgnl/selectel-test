@@ -41,12 +41,6 @@ export default {
     AppDatePicker,
     AppPostCard,
   },
-  mounted() {
-    this.fillPostsWithUsers();
-    this.fillPostsWithDate();
-
-    this.filteredPosts = this.posts;
-  },
   data() {
     return {
       users,
@@ -66,6 +60,20 @@ export default {
       });
     }
   },
+  watch: {
+    filteredUsers() {
+      this.filterPosts();
+    },
+    dates() {
+      this.filterPosts();
+    }
+  },
+  mounted() {
+    this.fillPostsWithUsers();
+    this.fillPostsWithDate();
+
+    this.filteredPosts = this.posts;
+  },
   methods: {
     findUser(userId) {
       return this.users.find(user => user.id === userId);
@@ -81,25 +89,24 @@ export default {
       })
     },
     filterPosts() {
-      console.log(this.dates)
       this.filteredPosts = !this.filteredUsers.length && !this.dates
           ? this.posts
           : this.posts.filter(post => {
-        const postDate = new Date(post.date.date).getTime();
+            const postDate = new Date(post.date.date).getTime();
 
-        const AuthorsIsIncludes = this.filteredUsers.includes(post.authorName);
-        const dateIsInBetween = postDate >= this.dates?.startDate && postDate <= this.dates?.endDate;
+            const AuthorsIsIncludes = this.filteredUsers.includes(post.authorName);
+            const dateIsInBetween = postDate >= this.dates?.startDate && postDate <= this.dates?.endDate;
 
-        if (dateIsInBetween && AuthorsIsIncludes) {
-          return true;
-        } else if (dateIsInBetween) {
-          return !this.filteredUsers.length;
-        } else if (AuthorsIsIncludes) {
-          return !this.dates;
-        } else {
-          return false;
-        }
-      })
+            if (dateIsInBetween && AuthorsIsIncludes) {
+              return true;
+            } else if (dateIsInBetween) {
+              return !this.filteredUsers.length;
+            } else if (AuthorsIsIncludes) {
+              return !this.dates;
+            } else {
+              return false;
+            }
+          })
     },
     onSelected(value) {
       this.filteredUsers = value;
@@ -108,13 +115,5 @@ export default {
       this.dates = value;
     }
   },
-  watch: {
-    filteredUsers() {
-      this.filterPosts();
-    },
-    dates() {
-      this.filterPosts();
-    }
-  }
 }
 </script>

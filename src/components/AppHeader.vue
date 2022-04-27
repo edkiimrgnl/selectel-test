@@ -23,6 +23,13 @@
 <script>
 export default {
   name: 'AppHeader',
+  data() {
+    return {
+      widthResponse: false,
+      telephone: '8 800 555 06 75',
+      email: 'sales@selectel.ru'
+    }
+  },
   created() {
     window.addEventListener('resize', this.resizeHandler);
   },
@@ -31,13 +38,6 @@ export default {
   },
   mounted() {
     this.changeWidthResponseData();
-  },
-  data() {
-    return {
-      widthResponse: false,
-      telephone: '8 800 555 06 75',
-      email: 'sales@selectel.ru'
-    }
   },
   methods: {
     checkWidth() {

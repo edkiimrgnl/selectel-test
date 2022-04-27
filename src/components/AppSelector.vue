@@ -17,11 +17,11 @@ import {UserOutlined} from "@ant-design/icons-vue";
 
 export default {
   name: 'AppSelector',
-  props: {
-    users: Array,
-  },
   components: {
     UserOutlined,
+  },
+  props: {
+    users: Array,
   },
   methods: {
     onChange(value) {

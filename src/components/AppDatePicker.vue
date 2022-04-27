@@ -11,13 +11,13 @@ import locale from 'ant-design-vue/es/date-picker/locale/ru_RU'
 
 export default {
   name: 'AppDatePicker',
-  beforeMount() {
-    this.changeLocaleValues();
-  },
   data() {
     return {
       locale,
     }
+  },
+  beforeMount() {
+    this.changeLocaleValues();
   },
   methods: {
     changeLocaleValues() {
@@ -37,6 +37,6 @@ export default {
         endDate
       })
     }
-  }
+  },
 }
 </script>
