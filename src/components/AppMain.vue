@@ -52,7 +52,7 @@ export default {
   },
   computed: {
     userNames() {
-      return users.map(el => {
+      return this.users.map(el => {
         return {
           value: el.name,
           label: el.name,
