@@ -79,8 +79,6 @@ export default {
       this.filterPosts();
     }
   },
-  async beforeMount() {
-  },
   async mounted() {
     this.users = await fetcher(usersUrl);
     this.posts = await fetcher(postsUrl);
