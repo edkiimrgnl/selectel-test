@@ -8,8 +8,8 @@ const generatedRandomDate = function() {
 
   const options = { day: 'numeric', month: 'long', year: 'numeric' }
 
-  const formattedDate = new Date(random(date1, date2)).toLocaleDateString('ru-RU', options);
   const date = new Date(random(date1, date2));
+  const formattedDate = date.toLocaleDateString('ru-RU', options);
 
   return {
     formattedDate,
