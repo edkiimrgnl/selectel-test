@@ -28,8 +28,8 @@ import AppSelector from '@/components/AppSelector.vue';
 import AppDatePicker from '@/components/AppDatePicker.vue';
 import AppPostCard from '@/components/AppPostCard.vue';
 
-import { users } from "../api/fetchUsers";
-import { posts } from "../api/fetchPosts";
+import { fetcher } from "../api/fetcher";
+import { postsUrl, usersUrl } from "../js/constants";
 
 import { generatedRandomDate } from "../js/helpers";
 
@@ -43,8 +43,8 @@ export default {
   },
   data() {
     return {
-      users,
-      posts,
+      users: [],
+      posts: [],
       filteredPosts: [],
       filteredUsers: [],
       dates: null,
@@ -68,7 +68,12 @@ export default {
       this.filterPosts();
     }
   },
-  mounted() {
+  async beforeMount() {
+  },
+  async mounted() {
+    this.users = await fetcher(usersUrl);
+    this.posts = await fetcher(postsUrl);
+
     this.fillPostsWithUsers();
     this.fillPostsWithDate();
 
