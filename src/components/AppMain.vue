@@ -9,14 +9,24 @@
         </div>
       </div>
       <div class="main_posts-container">
-        <AppPostCard
-          v-for="post in filteredPosts"
-          :key="post.id"
-          :title="post.title"
-          :body="post.body"
-          :user="post.authorName"
-          :date="post.date.formattedDate"
-        />
+        <div class="main_posts-container" v-if="!isLoading">
+          <AppPostCard
+              v-for="post in filteredPosts"
+              :key="post.id"
+              :title="post.title"
+              :body="post.body"
+              :user="post.authorName"
+              :date="post.date.formattedDate"
+          />
+        </div>
+        <div class="main_posts-container" v-if="isLoading">
+          <a-skeleton
+              v-for="el of 6"
+              :key="el"
+              class="card"
+              active
+          />
+        </div>
       </div>
     </div>
   </a-layout-content>
@@ -43,6 +53,7 @@ export default {
   },
   data() {
     return {
+      isLoading: true,
       users: [],
       posts: [],
       filteredPosts: [],
@@ -78,6 +89,10 @@ export default {
     this.fillPostsWithDate();
 
     this.filteredPosts = this.posts;
+
+    if (this.users.length && this.posts.length) {
+      this.isLoading = false;
+    }
   },
   methods: {
     findUser(userId) {
